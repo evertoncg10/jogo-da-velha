@@ -27,10 +27,9 @@ public class FileScoreManager implements ScoreManager {
 		
 		try(BufferedReader reader = Files.newBufferedReader(SCORE_FILE)) {
 			String line;
-			line = reader.readLine();
-			while(line != null) {
-				String[] tokens = line.split("\\|");
-				scoreMap.put("tokens[0]", Integer.parseInt(tokens[1]));
+			while ((line = reader.readLine()) != null) {
+			    String[] tokens = line.split("\\|");				
+			    scoreMap.put(tokens[0], Integer.parseInt(tokens[1]));
 			}
 		}
 	}
